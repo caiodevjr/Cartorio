@@ -118,57 +118,71 @@ int deletar()
 	fclose(file);		//fecha o arquivo
 }
 
-
-
 int main()
 {
 	int opcao=0; //definindo variaveis
 	int laco=1; 
+	char senhadigitada[10]="admin"; 		//criação de variavel string
+	int comparacao;			//criação da variavel de comparação
+	setlocale(LC_ALL, "Portuguese");
 	
-	for(laco=1;laco=1;) 		//para quando
+	printf("~~~~ Cartório da Gatolândia ~~~~\n\n");			//criação da tela de login do usuario
+	printf("Login de Administrador\n\nDigite sua senha: ");
+	scanf("%s",senhadigitada);
+	
+	comparacao = strcmp(senhadigitada, "admin");			//strcmp - comparação de strings
+	
+	if(comparacao == 0)
 	{
-	
-	system("cls"); //limpar as infos da interface
-	
-		setlocale(LC_ALL, "Portuguese");  //computador vai entender que o texto está em português. definindo linguagem.
-	
-		printf("~~~~ Cartório da Gatolândia ~~~~\n\n"); //Início do menu. SEMPRE utilizar o ; para indicar o comando pro PC.
-		printf("\tMENU PRINCIPAL\n\n"); 
-		printf("\t1 - Registro\n");
-		printf("\t2 - Consulta\n");
-		printf("\t3 - Deletar\n");
-		printf("\t4 - Sair do sistema\n\n\n");
-		printf("Escolha sua opção:"); //fim do menu
-	
-		scanf("%d", &opcao); //scanf - coletar o que o user digitar. %d - armazenar na variavel opcao (&opcao) 
-	
-		system("cls"); //limpar as informações da tela
 		
+		for(laco=1;laco=1;) 		//para quando
+		{
 		
-		switch(opcao)		//inicio da seleçao do menu
-		{	
-			case 1:  // dois pontos para ditar a instrução da opção (no lugar dos colchetes)
-			registro();	//chamada de funções
-			break; // break funciona para encerrar a instrução da opção
+		system("cls"); //limpar as infos da interface
+		
+			setlocale(LC_ALL, "Portuguese");  //computador vai entender que o texto está em português. definindo linguagem.
+		
+			printf("~~~~ Cartório da Gatolândia ~~~~\n\n"); //Início do menu. SEMPRE utilizar o ; para indicar o comando pro PC.
+			printf("\tMENU PRINCIPAL\n\n"); 
+			printf("\t1 - Registro\n");
+			printf("\t2 - Consulta\n");
+			printf("\t3 - Deletar\n");
+			printf("\t4 - Sair do sistema\n\n\n");
+			printf("Escolha sua opção:"); //fim do menu
+		
+			scanf("%d", &opcao); //scanf - coletar o que o user digitar. %d - armazenar na variavel opcao (&opcao) 
+		
+			system("cls"); //limpar as informações da tela
 			
-			case 2:
-			consulta();	//chamada de funções
-			break;
-			
-			case 3:
-			deletar();	//chamada de funções
-			break;
-			
-			case 4:		//chama a função
-			printf("Obrigado por utilizar o sistema!\n");
-			return 0;		//retorna valor 0, quebra laço, função, sai do sistema
-			break;
-			
-			default: //se nao for um dos casos
-				printf("Essa opção não está disponível!\n");
-				system("pause");
-			break;
-		}   //fim da seleção
-	
+			switch(opcao)		//inicio da seleçao do menu
+			{	
+				case 1:  // dois pontos para ditar a instrução da opção (no lugar dos colchetes)
+				registro();	//chamada de funções
+				break; // break funciona para encerrar a instrução da opção
+				
+				case 2:
+				consulta();	//chamada de funções
+				break;
+				
+				case 3:
+				deletar();	//chamada de funções
+				break;
+				
+				case 4:		//chama a função
+				printf("Obrigado por utilizar o sistema!\n");
+				return 0;		//retorna valor 0, quebra laço, função, sai do sistema
+				break;
+				
+				default: //se nao for um dos casos
+					printf("Essa opção não está disponível!\n");
+					system("pause");
+				break;
+			}   //fim da seleção
+		
+		}
 	}
+	
+	else
+		printf("Senha incorreta!");
+		
 }
