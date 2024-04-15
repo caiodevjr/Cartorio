@@ -4,7 +4,7 @@
 #include <string.h> //biblioteca responsável por cuidar das strings
 //bibliotecas sempre no começo do código.
 
-int registro() //função responsávelç por cadastrar os usuarios no sistema
+int registro() //função responsável por cadastrar os usuarios no sistema
 {
 	//inicio criação de variaveis/strings
 	
@@ -18,9 +18,9 @@ int registro() //função responsávelç por cadastrar os usuarios no sistema
 	//final criaçao de variaveis
 	
 	printf("Digite o CPF a ser cadastrado: \n"); //coleta de infos do user
-	scanf("%s", cpf); 				//%s - armazena strings na variavel cpf, a informação digitada entrará no lugar de %s
+	scanf("%s", cpf); 				//%s(string) - armazena strings na variavel cpf, a informação digitada entrará no lugar de %s
 	
-	strcpy(arquivo, cpf); 			//string copy - copia os valores de uma string
+	strcpy(arquivo, cpf); 			//string copy - copia os valores de uma string, aqui definido que o IDENTIFICADOR DE CADA ARQUIVO SERÁ O VALOR DE CPF
 	
 	FILE *file; 					//FILE - função de CRIAR um arquivo. file arquivo a ser criado
 	file = fopen(arquivo, "w"); 	//fopen - abra o arquivo tal. "w" vem de write, escreva um novo arquivo
@@ -122,7 +122,7 @@ int main()
 {
 	int opcao=0; //definindo variaveis
 	int laco=1; 
-	char senhadigitada[10]="admin"; 		//criação de variavel string
+	char senhadigitada[]="admin"; 		//criação de variavel string
 	int comparacao;			//criação da variavel de comparação
 	setlocale(LC_ALL, "Portuguese");
 	
@@ -135,7 +135,7 @@ int main()
 	if(comparacao == 0)
 	{
 		
-		for(laco=1;laco=1;) 		//para quando
+		for(laco=1;laco=1;) 		//para quando. for usou apenas 2 incrementos, nao utilizou o laco++ para ficar nesse loop infinito ate que opte por sair
 		{
 		
 		system("cls"); //limpar as infos da interface
@@ -150,9 +150,9 @@ int main()
 			printf("\t4 - Sair do sistema\n\n\n");
 			printf("Escolha sua opção:"); //fim do menu
 		
-			scanf("%d", &opcao); //scanf - coletar o que o user digitar. %d - armazenar na variavel opcao (&opcao) 
+			scanf("%d", &opcao); //scanf - coletar o que o user digitar. %d (inteiro) - armazenar na variavel opcao (&opcao) 
 		
-			system("cls"); //limpar as informações da tela
+			system("cls"); 		//limpar as informações da tela
 			
 			switch(opcao)		//inicio da seleçao do menu
 			{	
@@ -183,6 +183,6 @@ int main()
 	}
 	
 	else
-		printf("Senha incorreta!");
+		printf("Senha incorreta!"); 			//caso o usuario nao utilize a senha correta, mensagem de retorno
 		
 }
